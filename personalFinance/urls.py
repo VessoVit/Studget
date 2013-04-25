@@ -11,7 +11,7 @@ urlpatterns = patterns("",
     url(r"^$", TemplateView.as_view(template_name="homepage.html"), name="home"),
     url(r"^admin/", include(admin.site.urls)),
     url(r"^account/", include("account.urls")),
-    url(r"^invites/", include("kaleo.urls")),
+    url(r"^plan/$", TemplateView.as_view(template_name="plan.html"), name="plan"),
 )
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

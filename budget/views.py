@@ -1,1 +1,3 @@
-# Create your views here.
+from django.conf.urls.defaults import *
+
+

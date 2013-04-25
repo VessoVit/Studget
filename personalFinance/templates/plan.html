@@ -1,0 +1,27 @@
+{% extends "site_base.html" %}
+
+{% load i18n %}
+
+{% block head_title %}{% trans "Welcome" %}{% endblock %}
+
+{% block body_class %}home{% endblock %}
+
+{% block body %}
+
+    <h1>{% trans "Planner" %}</h1>
+    <p>
+        <b>Add Budget</b> . 
+    </p>
+    <p>
+        <b>Add Saving target</b> . 
+    </p>
+    
+    {% if user.is_authenticated %}
+        {% url what_next as what_next_url %}
+        <p class="what_next">{% blocktrans %}Wondering <a href="{{ what_next_url }}" class="btn primary large">What Next</a>?{% endblocktrans %}</p>
+    {% else %}
+        {% url account_login as login_url %}
+        {% url account_signup as signup_url %}
+        <p>{% blocktrans %}You can <a href="{{ login_url }}" class="btn">Log In</a> or <a href="{{ signup_url }}" class="btn primary">Sign Up</a> to try out the site.{% endblocktrans %}</p>
+    {% endif %}
+{% endblock %}
